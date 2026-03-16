@@ -6,7 +6,8 @@ Claude Code에서 사용하는 커스텀 Skills 모음.
 
 | Skill | 설명 | 호출 |
 |-------|------|------|
-| **tech-spec** | PRD/코드/텍스트 → 테크 스펙 자동 생성 + Notion 저장 | `/tech-spec` |
+| **tech-spec-draft** | 기능 설명 → 일정 산정용 테크 스펙 초안 | `/tech-spec-draft` |
+| **tech-spec** | PRD/코드/텍스트 → 상세 테크 스펙 | `/tech-spec` |
 
 ---
 
@@ -58,6 +59,22 @@ EOF
 
 ## 사용법
 
+### 기획 전 — 일정 산정용 초안
+
+```
+# Claude Code를 프로젝트 루트에서 열고
+/tech-spec-draft
+
+# 이후 프롬프트에 입력:
+# - 기능명
+# - 기능 설명 (윗분이 전달한 아이디어, 회의 내용 등)
+# - 참고 코드 경로 (선택)
+#
+# → tech-specs/draft-{기능명}-{날짜}.md 로 저장됨
+```
+
+### 기획 확정 후 — 상세 테크 스펙
+
 ```
 # Claude Code를 프로젝트 루트에서 열고
 /tech-spec
@@ -66,6 +83,8 @@ EOF
 # - 기능명
 # - 요구사항 (텍스트 / PRD 붙여넣기 / "코드 읽어서 파악해줘")
 # - 참고 코드 경로 (선택)
+#
+# → tech-specs/{기능명}-{날짜}.md 로 저장됨
 ```
 
 ---
@@ -73,5 +92,5 @@ EOF
 ## 새 컴퓨터 세팅 체크리스트
 
 - [ ] `git clone` + `install.sh` (또는 `install.ps1`) 실행
-- [ ] Claude Code에 Notion MCP 연결
-- [ ] 각 프로젝트 `.claude/CLAUDE.md`에 `NOTION_TECHSPEC_PAGE_ID` 입력
+- [ ] 각 프로젝트 `.claude/CLAUDE.md` 생성 (templates/project-claude.md 참고)
+- [ ] (선택) Claude Code에 Notion MCP 연결 + `NOTION_TECHSPEC_PAGE_ID` 입력

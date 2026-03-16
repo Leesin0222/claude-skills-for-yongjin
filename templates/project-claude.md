@@ -6,7 +6,11 @@
 - **기술 스택**: {예: Next.js, TypeScript, Supabase}
 - **주요 코드 경로**: {예: src/features/, src/components/}
 
-## Notion
+## Tech Spec
+
+- 테크 스펙 저장 경로: `tech-specs/`
+
+## Notion (선택)
 
 NOTION_TECHSPEC_PAGE_ID={Notion 페이지 ID}
 
